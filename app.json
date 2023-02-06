@@ -1,33 +1,16 @@
 {
   "expo": {
-    "name": "orgs-cesta",
-    "slug": "orgs-cesta",
-    "version": "1.0.0",
-    "orientation": "portrait",
+    "name": "Orgs Cesta",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "version": "1.0.0",
+    "slug": "orgs-cesta",
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.cesta.orgs",
+      "buildNumber": "1.0.0"
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+      "package": "com.cesta.orgs",
+      "versionCode": 1
     }
   }
 }
