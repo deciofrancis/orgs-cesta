@@ -7,6 +7,8 @@ import {
 } from '@expo-google-fonts/montserrat';
 import SplashScreen from 'expo-splash-screen';
 
+import Home from './src/telas/Home';
+
 import Cesta from './src/telas/Cesta';
 import mock from './src/mocks/cesta';
 
@@ -20,10 +22,17 @@ export default function App() {
     return <SplashScreen />
   }
 
-  return (
+ /**  return (
     <SafeAreaView style={{ flex: 1}}>
       <StatusBar />
       <Cesta {...mock} />      
     </SafeAreaView>
+  );*/
+
+  return (
+    <SafeAreaView style={{ flex: 1}}>
+      <Home/>     
+    </SafeAreaView>
   );
+
 }
