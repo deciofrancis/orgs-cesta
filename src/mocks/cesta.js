@@ -1,4 +1,4 @@
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo-farm.png';
 
 import tomate from '../../assets/frutas/Tomate.png';
 import brocolis from '../../assets/frutas/Brócolis.png';
