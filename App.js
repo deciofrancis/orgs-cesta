@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StatusBar } from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 import { 
   useFonts, 
   Montserrat_400Regular, 
@@ -12,14 +12,14 @@ import Home from './src/telas/Home';
 import Cesta from './src/telas/Cesta';
 import mock from './src/mocks/cesta';
 
-export default function App() {
+function App() {
   const [fonteCarregada] = useFonts({
     "MontserratRegular": Montserrat_400Regular,
     "MontserratBold": Montserrat_700Bold,
   });
   
   if (!fonteCarregada) {
-    return <SplashScreen />
+    
   }
 
  /**  return (
@@ -30,9 +30,17 @@ export default function App() {
   );*/
 
   return (
-    <SafeAreaView style={{ flex: 1}}>
+    <SafeAreaView style={estilos.tela}>
       <Home/>     
     </SafeAreaView>
   );
 
 }
+
+const estilos = StyleSheet.create({
+  tela: {
+    flex: 1,
+  }
+})
+
+export default App;
