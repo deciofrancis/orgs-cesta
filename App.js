@@ -1,26 +1,16 @@
 import React from 'react';
 import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
-import { 
-  useFonts, 
-  Montserrat_400Regular, 
-  Montserrat_700Bold
-} from '@expo-google-fonts/montserrat';
-import SplashScreen from 'expo-splash-screen';
+import { NavigationContainer } from '@react-navigation/native';
+import useProdutores from './src/hooks/useProdutores';
 
 import Home from './src/telas/Home';
+import MelhoresProdutores from './src/telas/MelhoresProdutores';
 
 import Cesta from './src/telas/Cesta';
 import mock from './src/mocks/cesta';
 
 function App() {
-  const [fonteCarregada] = useFonts({
-    "MontserratRegular": Montserrat_400Regular,
-    "MontserratBold": Montserrat_700Bold,
-  });
-  
-  if (!fonteCarregada) {
-    
-  }
+  const produtores = useProdutores(false);
 
  /**  return (
     <SafeAreaView style={{ flex: 1}}>
@@ -31,7 +21,9 @@ function App() {
 
   return (
     <SafeAreaView style={estilos.tela}>
-      <Home/>     
+      <NavigationContainer>
+        <Home />
+      </NavigationContainer>
     </SafeAreaView>
   );
 
