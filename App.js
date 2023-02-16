@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, StatusBar } from 'react-native';
 
-import AppRotas from './rotas/AppRotas';
+import AppRotas from './src/rotas/AppRotas';
 
 export default function App() {
 
