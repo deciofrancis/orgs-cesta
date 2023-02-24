@@ -1,38 +1,12 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import useProdutores from './src/hooks/useProdutores';
+import { SafeAreaView, StatusBar } from 'react-native';
 
-import Home from './src/telas/Home';
-import MelhoresProdutores from './src/telas/MelhoresProdutores';
+import AppRotas from './src/rotas/AppRotas';
 
-import Cesta from './src/telas/Cesta';
-import mock from './src/mocks/cesta';
+export default function App() {
 
-function App() {
-  const produtores = useProdutores(false);
-
- /**  return (
-    <SafeAreaView style={{ flex: 1}}>
-      <StatusBar />
-      <Cesta {...mock} />      
+  return <SafeAreaView style={{ flex: 1 }}>
+    <StatusBar />
+      <AppRotas />
     </SafeAreaView>
-  );*/
-
-  return (
-    <SafeAreaView style={estilos.tela}>
-      <NavigationContainer>
-        <Home />
-      </NavigationContainer>
-    </SafeAreaView>
-  );
-
 }
-
-const estilos = StyleSheet.create({
-  tela: {
-    flex: 1,
-  }
-})
-
-export default App;
