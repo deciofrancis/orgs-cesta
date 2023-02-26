@@ -1,51 +1,53 @@
-import React from "react";
-import { FlatList, StyleSheet, View, } from 'react-native';
+import React from 'react';
+import { useRoute } from '@react-navigation/native';
+import { FlatList, StyleSheet, View } from 'react-native';
 
-import Texto from "../../componentes/Texto";
+import Texto from '../../componentes/Texto';
 
-import Detalhes from "./componentes/Detalhes";
-import Topo from './componentes/Topo';
-import Item from "./componentes/Item";
+import Topo from '../../componentes/Topo';
+import useTextos from '../../hooks/useTextos';
+import Detalhes from './componentes/Detalhes';
+import Item from './componentes/Item';
 
-export default function Cesta({ topo, detalhes, itens }) {
-    return <>
-        <FlatList 
-            data={itens.lista}
-            renderItem={Item}
-            keyExtractor={({ nome }) => nome }
-            ListHeaderComponent={() => {
-                return <>
-                    <Topo {...topo} />
-                    <View style={estilos.cesta}>
-                        <Detalhes {...detalhes} />
-                        <Texto style={estilos.titulo}>{ itens.titulo }</Texto>
-                    </View>
-                </>
-            }}
-        />
-        
-    </>
-    
+export default function Cesta() {
+    const route = useRoute();
+  const { topoCesta, tituloItens } = useTextos();
+
+  const { detalhes, itens, produtor} = route.params;
+
+  return <>
+    <FlatList
+      data={itens}
+      renderItem={Item}
+      keyExtractor={({ nome }) => nome }
+      ListHeaderComponent={() => {
+        return <>
+          <Topo titulo={topoCesta} />
+          <View style={estilos.cesta}>
+            <Detalhes {...detalhes} produtor={produtor} />
+            <Texto style={estilos.titulo}>{ tituloItens }</Texto>
+          </View>
+        </>
+      }}
+      style={estilos.lista}
+    />
+  </>
 }
 
 const estilos = StyleSheet.create({
-    titulo: {
-        color: "#464646",
-        fontWeight: "bold",
-        marginTop: 32,
-        marginBottom: 8,
-        fontSize: 20,
-        lineHeight: 32,
-    },
-    cesta: {
-        paddingVertical: 8,
-        paddingHorizontal: 16,
-    },
-    item: {
-        flexDirection: "row",
-        borderBottomWidth: 1,
-        borderBottomColor: "#ECECEC",
-        paddingVertical: 16,
-        alignItems: "center",
-    },
-})
+  lista: {
+    backgroundColor: '#ffffff',
+  },
+  titulo: {
+    color: "#464646",
+    fontWeight: "bold",
+    marginTop: 32,
+    marginBottom: 8,
+    fontSize: 20,
+    lineHeight: 32,
+  },
+  cesta: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+  },
+});
